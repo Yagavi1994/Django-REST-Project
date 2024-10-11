@@ -1,4 +1,8 @@
-FROM gitpod/workspace-base
+FROM gitpod/workspace-full:latest
+
+# Install Python 3.11
+RUN pyenv install 3.11.5 && pyenv global 3.11.5
+
 
 RUN echo "CI version from base"
 

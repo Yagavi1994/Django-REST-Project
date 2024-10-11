@@ -62,7 +62,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'),
+    '8000-yagavi1994-djangorestpr-m4eir3o1qdb.ws-eu116.gitpod.io',
     'localhost',
 ]
 
@@ -150,7 +150,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     } if 'DEV' in os.environ else dj_database_url.parse(
-        os.environ.get('DATABASE_URL')
+        os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3')
     ))
 }
 
