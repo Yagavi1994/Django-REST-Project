@@ -22,6 +22,7 @@ if [[ -z "${HEROKU_API_KEY}" ]]; then
    . ~/.bashrc > /dev/null
    echo Done!
 else
+<<<<<<< HEAD
    echo API key is already set.
    echo
    echo To reset the API key please input "'reset'":
@@ -37,4 +38,7 @@ else
    fi
    echo
    echo Exiting
+=======
+   echo API key is already set. Exiting
+>>>>>>> source-repo/master
 fi
