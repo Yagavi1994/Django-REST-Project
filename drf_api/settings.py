@@ -65,7 +65,7 @@ DEBUG = 'True'
 
 ALLOWED_HOSTS = [
     '8000-yagavi1994-djangorestpr-m4eir3o1qdb.ws-eu116.gitpod.io',
-    'drf-api-1.herokuapp.com',
+    'drf-api-1-17088e476ea9.herokuapp.com',
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
