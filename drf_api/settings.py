@@ -26,6 +26,11 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default authentication backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth authentication backend
+]
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [(
         'rest_framework.authentication.SessionAuthentication'
@@ -40,6 +45,7 @@ REST_FRAMEWORK = {
 if 'DEV' not in os.environ:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
         'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ]
 
 REST_USE_JWT = True
@@ -61,11 +67,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEV' in os.environ
 
-DEBUG = 'True'
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-yagavi1994-djangorestpr-m4eir3o1qdb.ws-eu116.gitpod.io',
-    'drf-api-1-17088e476ea9.herokuapp.com',
+    os.environ.get('ALLOWED_HOST'),
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-yagavi1994-djangorestpr-m4eir3o1qdb.ws-eu116.gitpod.io',
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
