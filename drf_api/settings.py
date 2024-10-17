@@ -69,12 +69,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-yagavi1994-djangorestpr-m4eir3o1qdb.ws-eu116.gitpod.io',
+    '8000-yagavi1994-djangorestpr-fniaser47ea.ws.codeinstitute-ide.net',
     'drf-api-1-17088e476ea9.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-yagavi1994-djangorestpr-m4eir3o1qdb.ws-eu116.gitpod.io',
+    'https://8000-yagavi1994-djangorestpr-fniaser47ea.ws.codeinstitute-ide.net',
     'https://drf-api-1-17088e476ea9.herokuapp.com',
     'https://moments-walkthrough-ci-dec867b0a78c.herokuapp.com',
     'https://3000-yagavi1994-moments-cx1uvzeaf69.ws-eu116.gitpod.io',
