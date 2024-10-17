@@ -32,7 +32,7 @@ class Post(models.Model):
         upload_to='images/', blank=True
     )
     image = models.ImageField(
-        upload_to='images/', default='../default_post_rgq6aq', blank=True
+        upload_to='images/', default='images/default_profile_ka770m', blank=True
     )
 
     class Meta:
