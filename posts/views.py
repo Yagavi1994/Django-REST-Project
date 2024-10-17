@@ -37,8 +37,7 @@ class PostList(generics.ListCreateAPIView):
         'comments_count',
         'likes__created_at',
     ]
-    parser_classes = [MultiPartParser, FormParser]  # Enable handling of file uploads
-
+    
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
