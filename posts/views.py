@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
+from rest_framework.parsers import MultiPartParser, FormParser
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Post
@@ -8,8 +9,8 @@ from .serializers import PostSerializer
 
 class PostList(generics.ListCreateAPIView):
     """
-    List posts or create a post if logged in
-    The perform_create method associates the post with the logged in user.
+    List posts or create a post if logged in.
+    The perform_create method associates the post with the logged-in user.
     """
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -36,6 +37,7 @@ class PostList(generics.ListCreateAPIView):
         'comments_count',
         'likes__created_at',
     ]
+    parser_classes = [MultiPartParser, FormParser]  # Enable handling of file uploads
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
