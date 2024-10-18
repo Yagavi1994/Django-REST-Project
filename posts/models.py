@@ -33,6 +33,10 @@ class Post(models.Model):
         upload_to='images/', default='images/default_post_ul0odp', blank=True
     )
 
+    image_filter = models.CharField(
+        max_length=32, choices=image_filter_choices, default='normal'
+    )
+
     class Meta:
         ordering = ['-created_at']
 
